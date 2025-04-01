@@ -2,6 +2,8 @@ set nocompatible
 
 " THEME
 
+colo slate
+set background=light " Reset colors
 set background=dark
 
 " VISUAL HELPERS
@@ -17,11 +19,22 @@ set number
 "set cursorline
 "set cursorcolumn
 
-" TABS
+"set statusline =%4*\ %<%F%*
+set statusline+=%F " Display file's full path on the status line
+set laststatus=2 " Always show the status line
+"hi StatusLine ctermbg=lightgray ctermfg=darkgray
+hi StatusLine ctermbg=darkgray ctermfg=gray
 
+set wildmenu " Enum files in the dir while <tab>ing in :e
+"set wildmode=list:full
+
+" TAB CHARACTERS
+
+" General
 set shiftwidth=4
 set tabstop=4
 
+" File specific
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
 
