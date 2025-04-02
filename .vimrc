@@ -2,7 +2,7 @@ set nocompatible
 
 " THEME
 
-colo slate
+colorscheme slate " ls -l /usr/share/vim/vim<version>/colors
 set background=light " Reset colors
 set background=dark
 
@@ -19,8 +19,9 @@ set number
 "set cursorline
 "set cursorcolumn
 
-"set statusline =%4*\ %<%F%*
-set statusline+=%F " Display file's full path on the status line
+"set statusline=%4*\ %<%F%*
+"set statusline=%M%R%l/%L,%c:%F
+set statusline+=\ %F\ %r%m%=%l/%L,%c\ \  " Display file's full path on the status line
 set laststatus=2 " Always show the status line
 "hi StatusLine ctermbg=lightgray ctermfg=darkgray
 hi StatusLine ctermbg=darkgray ctermfg=gray
