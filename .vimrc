@@ -2,9 +2,11 @@
 " Some features mentioned here might not be available in your
 " version of Vim.
 
-" For languages support see
+" For languages support see the ftplugin directory.
+" I also use these plugins
 "
 " - Elixir -> https://github.com/elixir-editors/vim-elixir
+" - ReScript -> https://github.com/rescript-lang/vim-rescript
 
 set nocompatible
 
