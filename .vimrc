@@ -8,6 +8,7 @@
 " - Elixir -> https://github.com/elixir-editors/vim-elixir
 " - ReScript -> https://github.com/rescript-lang/vim-rescript
 
+" use extended function of vim (no compatible with vi)
 set nocompatible
 
 " --------------------------------------------------------------------
