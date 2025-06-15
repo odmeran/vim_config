@@ -2,14 +2,52 @@
 " Some features mentioned here might not be available in your
 " version of Vim.
 
-" For languages support see the ftplugin directory.
-" I also use these plugins
+" use extended function of vim (no compatible with vi)
+set nocompatible
+
+" --------------------------------------------------------------------
+" 							LANGUAGES SUPPORT
+" --------------------------------------------------------------------
+
+" For the lang specific scripts see the ~/.vim/ftplugin/ directory.
+"
+" I also use these plugins:
 "
 " - Elixir -> https://github.com/elixir-editors/vim-elixir
 " - ReScript -> https://github.com/rescript-lang/vim-rescript
+" - .NET -> https://github.com/OmniSharp/omnisharp-vim
+" - .NET Razor -> https://github.com/jlcrochet/vim-razor
 
-" use extended function of vim (no compatible with vi)
-set nocompatible
+" Omnisharp to use dotnet instead of mono to run the server.
+let g:OmniSharp_server_use_net6 = 1
+" Disable automatic OmniSharp highlighting.
+let g:OmniSharp_highlighting = 0
+
+let g:OmniSharp_popup_options = {
+\ 'highlight': 'Normal',
+\ 'padding': [1],
+\ 'border': [1],
+\ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+\ 'borderhighlight': ['Special']
+\}
+
+" Cake files use C# syntax.
+if expand('%:e') == 'cake'
+	set ft=cs
+endif
+
+" cshtml files use razor syntax.
+if expand('%:e') == 'cshtml'
+	set ft=razor
+endif
+
+" Nuget files use XML syntax.
+if expand('%:t') == 'Directory.Packages.props' ||
+	\ expand('%:t') == 'Directory.Build.targets' ||
+	\ expand('%:t') == 'Directory.Build.props' ||
+	\ expand('%:t') == 'nuget.config'
+	set ft=xml
+endif
 
 " --------------------------------------------------------------------
 " 								THEME
@@ -30,6 +68,7 @@ filetype indent on
 syntax on
 
 set number " Display line numbers
+set cc=71 " Display the line wrap column
 
 "set cursorline
 "set cursorcolumn
@@ -52,10 +91,12 @@ set tabstop=4
 
 " File specific
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
-autocmd FileType elixir setlocal shiftwidth=4 tabstop=4 noexpandtab
-
-"set expandtab " Space chars instead of tabs.
+autocmd FileType json setlocal shiftwidth=2 tabstop=2
+autocmd FileType ps1 setlocal shiftwidth=2 tabstop=2
+"autocmd FileType elixir setlocal shiftwidth=4 tabstop=4 noexpandtab
+autocmd FileType elixir setlocal noexpandtab
 
 " --------------------------------------------------------------------
 " 								SEARCH
@@ -95,3 +136,10 @@ nmap <C-K> :sp<cr>
 " With `gf` command you can follow (open file of) the path under the
 " cursor. To get yourself back--to the previous opened file--go `gb`.
 nnoremap gb <C-6>
+
+" Tabs management
+nmap tn :tabnew<cr>
+nmap th :tabprevious<cr>
+nmap tl :tabnext<cr>
+" Create a new tab and move the focused window to the tab.
+nmap tm :tabedit %<cr>
