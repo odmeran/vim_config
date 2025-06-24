@@ -92,6 +92,7 @@ set tabstop=4
 " File specific
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
+autocmd FileType cs setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 autocmd FileType ps1 setlocal shiftwidth=2 tabstop=2
