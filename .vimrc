@@ -36,12 +36,7 @@ if expand('%:e') == 'cake'
 	set ft=cs
 endif
 
-" cshtml files use razor syntax.
-if expand('%:e') == 'cshtml'
-	set ft=razor
-endif
-
-" Nuget files use XML syntax.
+" NuGet files use XML syntax.
 if expand('%:t') == 'Directory.Packages.props' ||
 	\ expand('%:t') == 'Directory.Build.targets' ||
 	\ expand('%:t') == 'Directory.Build.props' ||
@@ -90,8 +85,6 @@ set shiftwidth=4
 set tabstop=4
 
 " File specific
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType cs setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
